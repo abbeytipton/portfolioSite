@@ -14,5 +14,17 @@ namespace Portfolio {
 	public partial class Default {
 		
 		protected System.Web.UI.HtmlControls.HtmlForm form1;
+		
+		protected System.Web.UI.WebControls.Button Project1Btn;
+		
+		protected System.Web.UI.WebControls.Panel panel;
+		
+		protected System.Web.UI.WebControls.TextBox EmailNameTextBox;
+		
+		protected System.Web.UI.WebControls.TextBox EmailTextBox;
+		
+		protected System.Web.UI.WebControls.TextBox EmailMessageTextBox;
+		
+		protected System.Web.UI.WebControls.Button SubmitBtn;
 	}
 }
