@@ -1,46 +1,64 @@
-﻿body {
+﻿/* Body/page tags */
+
+body, html {
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 500 !important;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 h1, h2 {
     font-family: 'Abril Fatface', cursive;
     line-height: 1px;
     letter-spacing: 2px;
-    color: #3d514a;
+    color: #536954;
 }
 
-.navbar {
+/* Navbar */
+.Navbar {
     overflow: hidden;
     background-color: transparent;
     position: fixed;
-    width: 98vw; 
-    z-index: 100;
-
+    width: 95vw;
+    z-index: 1;
 }
 
-.icons {
+.Icons {
     margin-right: 50px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
+/* Icons - these classes are font awesome classes, just updating the styling */
 .fas, .fab {
     margin-top: 20px;
     margin-right: 10px;
     display: block;
     text-decoration: none;
     cursor: pointer;
-    color: #bc8f8f;
+    color: #A5BEA8;
 }
 
-    .fas:hover, .fab:hover {
-        color: #9e5f5f;
-    }
+.fas:hover, .fab:hover{
+    color: #677669;
+}
 
+/* The JS uses these classes to make button icons look disabled */
+.Hover:hover {
+    color: #677669 !important;
+}
 
-.jumbotron {
+.Nohover:hover {
+    color: grey !important;
+}
+
+/* First page (on load) */
+
+/* Jumbotron has the main background image and the overlay is a color overlay on top of it */
+.Jumbotron {
     background-image: url("/Images/homepageBackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -53,30 +71,31 @@ h1, h2 {
     left: 0;
 }
 
-.overlay {
-    background: rgba(158, 160, 116, .65);
+.Overlay {
+    background: rgba(158, 160, 116, .60);
     overflow: hidden;
     height: 100%;
     z-index: 2;
     width: 100%;
 }
 
-.introHeader {
+/* Styling for intro header and text */
+.IntroHeader {
     z-index: 10;
     font-size: 24px;
     font-family: 'Abril Fatface', cursive;
-    color: #3d514a;
+    color: #536954;
     margin: 50px 0 0 50px;
     width: 40%;
     padding: 7px;
     display: none;
 }
 
-.introText {
+.IntroText {
     z-index: 10;
     font-size: 16px;
     font-family: 'Merriweather Sans', sans-serif;
-    color: #3d514a;
+    color: #536954;
     margin: 5px 0 0 50px;
     width: 25%;
     text-align: justify;
@@ -84,7 +103,8 @@ h1, h2 {
     font-weight: 500 !important;
 }
 
-.downArrow {
+/* Down arrow is animated to have three arrows that move up and down */
+.DownArrow {
     position: relative;
     width: 50px;
     height: 50px;
@@ -95,64 +115,72 @@ h1, h2 {
     display: none;
 }
 
-    .downArrow span {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: 3px solid #9e5f5f;
-        border-right: 3px solid #9e5f5f;
-        animation: animate 1s linear infinite;
-    }
-
-        .downArrow span:nth-child(1) {
-            top: -30px;
-            left: -30px;
-            animation-delay: 0s;
-        }
-
-        .downArrow span:nth-child(2) {
-            top: -15px;
-            left: -15px;
-            animation-delay: 0.2s;
-        }
-
-        .downArrow span:nth-child(3) {
-            top: 0;
-            left: 0;
-            animation-delay: 0.4s;
-        }
-
-
-
-@keyframes animate {
-    0% {
-        border-color: #9e5f5f;
-        transform: translate(0,0);
-    }
-
-    20% {
-        border-color: #9e5f5f;
-        transform: translate(15px,15px);
-    }
-
-    20.1%,100% {
-        border-color: #bc8f8f;
-    }
+/* Animate the spans */
+.DownArrow span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #677669;
+    border-right: 3px solid #677669;
+    animation: animate 1s linear infinite;
 }
 
-.projectsView {
+.DownArrow span:nth-child(1) {
+    top: -30px;
+    left: -30px;
+    animation-delay: 0s;
+}
+
+.DownArrow span:nth-child(2) {
+    top: -15px;
+    left: -15px;
+    animation-delay: 0.2s;
+}
+
+.DownArrow span:nth-child(3) {
+    top: 0;
+    left: 0;
+    animation-delay: 0.4s;
+}
+
+@keyframes animate {
+0% {
+    border-color: #677669;
+    transform: translate(0,0);
+}
+
+20% {
+    border-color: #677669;
+    transform: translate(15px,15px);
+}
+
+20.1%,100% {
+    border-color: #A5BEA8;
+}
+}
+
+/* Project pages */
+.ProjectsView {
+    height: 100vh;
+}
+
+.ProjectsView, .OtherPageView {
     display: none;
     width: 100%;
-    height: 100vh;
     padding: 0;
     margin: 0;
 }
 
-.projectsFlex {
+.OtherPageView {
+    z-index: 20;
+    height: 60vh;
+}
+
+.ProjectsFlex, .OtherFlex {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -160,25 +188,35 @@ h1, h2 {
     padding-bottom: 20px;
 }
 
-.projectPictures {
+.OtherPageView {
+    padding-top: 50px !important;
+}
+
+.ProjectPictures {
     width: 60%;
 }
 
-.flexChild {
+.AboutPicture {
+    width: 60%;
+    border-radius: 50%;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.FlexChild {
     margin-top: 40px;
     width: 40%;
 }
 
-.projectText {
+.ProjectText {
     margin-top: 40px;
     letter-spacing: 1px;
-    color: #3d514a;
+    color: #536954;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 500 !important;
 }
 
-.projectButton {
-    background-color: #3d514a;
+.ProjectButton {
+    background-color: #536954;
     color: white;
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 16px;
@@ -194,44 +232,236 @@ h1, h2 {
     cursor: pointer;
 }
 
-.projectButtons {
+.OtherButton {
+    background-color: #536954;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    border-radius: 6px;
+    margin-top: 20px;
+    box-shadow: none;
+    font-weight: 300 !important;
+    text-decoration: none;
+    text-shadow: 0px;
+    border-style: none;
+    cursor: pointer;
+    margin-left: 79%;
+    margin-bottom: 40px;
+}
+
+.Captcha {
+    margin-left: 60%;
+}
+
+.ProjectButtons {
     margin: 0 auto;
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-    .projectButton:hover {
-        background-color: #1e2825;
-    }
+.ProjectButton:hover, .OtherButton:hover {
+    background-color: #1e2825;
+}
 
-.projectsLine {
+.ProjectsLine {
     width: 80%;
-    background-color: #3d514a;
+    background-color: #536954;
     height: 4px;
 }
 
-.seeNextArrow, .seePreviousArrow {
+/* Arrows */
+.SeeNextArrow, .SeePreviousArrow {
     z-index: 20;
     position: absolute;
     display: none;
 }
 
-.seeNextArrow {
+.SeeNextArrow {
     bottom: 60px;
     left: 20px;
 }
 
-.seePreviousArrow {
+.SeePreviousArrow {
     top: 30px;
     left: 20px;
 }
 
-.seeNextArrow .fas, .seePreviousArrow .fas {
+.SeeNextArrow .fas, .SeePreviousArrow .fas {
     font-size: 48px;
     margin-left: 35%;
 }
 
-#PageTwo {
+/* Pages to hide on load */
+#PageTwo, #AboutPage, #ContactPage {
     display: none;
 }
+
+#CloseBtn {
+    font-size: 48px;
+    margin-left: 45%;
+}
+
+/* Contact page styling */
+input[type=text], textarea {
+    width: 65% !important;
+    margin-left: 40px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+label {
+    width: 30%;
+    margin-bottom: 20px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 18px;
+}
+
+.ContactFlex {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ContactFlex:first-of-type {
+    margin-top: 40px;
+}
+
+/* Modal for project info */
+.Modal {
+    display: none;
+    position: fixed; 
+    z-index: 50; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: #fff; 
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.ProjectModalContent {
+    background-color: #fff;
+    margin: 7% auto;
+    padding: 15px 10px;
+    border: 1px solid #888;
+    width: 60%;
+    height: 50%;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.CloseButtonFlex {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -45px;
+    margin-right: -30px;
+    padding: 0;
+}
+
+.Close, .CloseLargeImageFlex {
+    color: #A5BEA8;
+    font-size: 48px;
+    text-align: center;
+    z-index: 10;
+}
+
+.PictureButtonLeft, .PictureButtonRight {
+    font-size: 48px !important;
+}
+
+.ModalFlex {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.PictureHolder {
+    min-height: 80%;
+    max-height: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: -10px;
+    position: relative;
+}
+
+.PictureFlex {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    min-width: 70%;
+    height: 90%;
+}
+
+.ModalFlexChild {
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    min-width: 25%;
+    max-width: 25%;
+    height: 100%;
+}
+
+.ProjectImage {
+    height: 100%;
+    object-fit: contain;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.ModalLine {
+    width: 80%;
+    background-color: #536954;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+.ModalLongText {
+    text-align: justify;
+    min-height: 45%;
+    max-height: 45%;
+}
+
+.ZoomImage {
+    position: absolute;
+    z-index: 5;
+    font-size: 48px;
+    bottom: 0;
+    left: 6%;
+}
+
+.LargePicture {
+    display: none;
+    z-index: 5000;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 2%;
+    background-image: url("../Images/Projects/Project1-1.png"); 
+    height: 80vh; 
+    max-width: 80vw;
+    margin-left: 10vw;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    border: 2px solid black;
+}
+
+.CloseLargeImageFlex {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -35px;
+    margin-left: 1180px;
+    padding: 0;
+}
+
+.IconBackground {
+    background: radial-gradient(white 50%, transparent 50%);
+}
+
