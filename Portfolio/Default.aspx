@@ -16,9 +16,12 @@
       <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <!-- Link for the contact form Captcha -->
       <script src='https://www.google.com/recaptcha/api.js'></script>
-      
+      <!-- This meta tag makes device widths (iphones, etc) work/look right -->
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+
    </head>
    <body>
+   
       <form id="form1" runat="server">
       
          <!-- Nav bar (to right of page) -->
@@ -28,7 +31,6 @@
                <i id="ContactBtn" class="fas fa-2x fa-envelope-square"></i>
                <i id="LinkedInBtn" class="fab fa-2x fa-linkedin"></i>
                <i id="GithubBtn" class="fab fa-2x fa-github-square"></i>
-               <i id="CodepenBtn" class="fab fa-2x fa-codepen"></i>
             </div>
          </div>
          
@@ -60,11 +62,16 @@
          </div>
          
          <!-- This div is a Modal that shows pictures larger when they're clicked and is otherwise hidden -->
-         <div class="LargePicture">
-            <div class="CloseLargeImageFlex">
-                <i class="fas fa-times-circle IconBackground"></i>
+        <div class="LargePictureBackground">         
+            <div class="LargePicture" id="LargePicture">
+                <div class="CloseLargeImageFlex">
+                    <i class="fas fa-times-circle IconBackground"></i>
+                </div>
             </div>
         </div>
+        
+        <!-- This placeholder shows when a modal does; it's there to make the background consistent during modal transitions -->
+        <div class="ModalPlaceholder"></div>
           
          <!-- These two arrows show the next/previous pages of projects -->  
          <div class="SeePreviousArrow">
@@ -80,19 +87,18 @@
             <div class="ProjectsFlex">
             
                <!-- Image of the project -->
-               <div class="FlexChild">
+               <div class="FlexChild ProjectPictureHolder">
                   <img src="/Images/project1.png" class="ProjectPictures">
                </div>
               <!-- Text about the project -->
                <div class="FlexChild">
-                  <h1>Scrum Flow</h1>
+                  <h1 class="PageFirstTitle">Scrum Flow</h1>
                   <p class="ProjectText">
-                     A fully functional digital Scrum Board built for T&W Operations. This clean, easy-to-use website allows the development team using it to plan and carry out Sprints, organize their work as Stories, Defects, or Bugs, and helps management keep track of productivity with graphs and charts. 
+                     A fully functional digital Scrum Board. This clean, easy-to-use website allows the development team using it to plan and carry out Sprints, organize their work as Stories, Defects, or Bugs, and helps management keep track of productivity with graphs and charts. 
                   </p>
                   <!-- Buttons to preview/visit -->
                   <div class="ProjectButtons">
-                     <asp:Button ID="Project1Btn" runat="server" AutoPostback="false" BorderStyle="None" class="ProjectButton" Text="Preview" />
-                     <button class="ProjectButton">Visit</button>
+                     <asp:Button ID="Project1Btn" runat="server" AutoPostback="false" BorderStyle="None" class="ProjectButton" Text="Learn More" />
                   </div>
                </div>
             </div>
@@ -102,17 +108,16 @@
             
             <!-- Second project of page one -->
             <div class="ProjectsFlex">
-               <div class="FlexChild">
-                  <img src="/Images/project1.png" class="ProjectPictures">
+               <div class="FlexChild ProjectPictureHolder">
+                  <img src="/Images/project2.png" class="ProjectPictures">
                </div>
                <div class="FlexChild">
-                  <h1>Headache Tracker</h1>
+                  <h1>Class Store and Points</h1>
                   <p class="ProjectText">
-                     A simple, clean, easy-to-use web app that allows users to log headaches and symptoms. After logging headaches, users can then see graphs of their most common triggers.
+                    A digital classroom management tool for teachers and their students. This mobile-friendly web app allows teachers to assign and remove points from students as they complete tasks, and allows students to shop at their teacher's online store using their points.
                   </p>
                   <div class="ProjectButtons">
-                     <button class="ProjectButton">Preview</button>
-                     <button class="ProjectButton">Visit</button>
+                      <asp:Button ID="Project2Btn" runat="server" AutoPostback="false" BorderStyle="None" class="ProjectButton" Text="Learn More" />
                   </div>
                </div>
             </div>
@@ -121,17 +126,16 @@
          <!-- Page two of projects -->  
          <div class="ProjectsView" id="PageTwo">
             <div class="ProjectsFlex">
-               <div class="FlexChild">
-                  <img src="/Images/project1.png" class="ProjectPictures">
+               <div class="FlexChild ProjectPictureHolder">
+                  <img src="/Images/project3.png" class="ProjectPictures">
                </div>
                <div class="FlexChild">
-                  <h1>Class Sap</h1>
+                  <h1 class="PageFirstTitle">Headache Tracker</h1>
                   <p class="ProjectText">
-                     A digital classroom management tool for teachers and their students. This mobile-friendly web app allows teachers to assign and remove points from students as they complete tasks, and allows students to shop at their teacher's online store using their points.
+                     A simple, clean, easy-to-use web app that allows users to log headaches and symptoms. After logging headaches, users can then see graphs of their most common triggers.
                   </p>
                   <div class="ProjectButtons">
-                     <button class="ProjectButton">Preview</button>
-                     <button class="ProjectButton">Visit</button>
+                      <asp:Button ID="Project3Btn" runat="server" AutoPostback="false" BorderStyle="None" class="ProjectButton" Text="Learn More" />
                   </div>
                </div>
             </div>
@@ -140,7 +144,7 @@
             
             <!-- Second project on page two -->
             <div class="ProjectsFlex">
-               <div class="FlexChild">
+               <div class="FlexChild ProjectPictureHolder">
                   <img src="/Images/project1.png" class="ProjectPictures">
                </div>
                <div class="FlexChild">
@@ -149,8 +153,7 @@
                      This web app is in progress. When completed, users will be able to add friends and family members they want to buy gifts for; after buying gifts, users can log how much the recipient liked the gift. The next time the recipient neesd a gift, the user will be able to see what they bought them previously, how much they liked it, and more relevant gift ideas.
                   </p>
                   <div class="ProjectButtons">
-                     <button class="ProjectButton">Preview</button>
-                     <button class="ProjectButton">Visit</button>
+                      <asp:Button ID="Project4Btn" runat="server" AutoPostback="false" BorderStyle="None" class="ProjectButton" Text="Learn More" />
                   </div>
                </div>
             </div>
@@ -161,17 +164,22 @@
          <div class="OtherPageView" id="AboutPage">
             <div class="OtherFlex">
                <!-- Picture -->
-               <div class="FlexChild">
+               <div class="FlexChild ProjectPictureHolder">
                   <img src="/Images/aboutPicture.jpg" class="AboutPicture">
                </div>
                <!-- Text -->
                <div class="FlexChild">
                   <h1>About</h1>
-                  <br>
                   <p class="ProjectText">
                      Hi, I'm Abbey!<br><br>
                      
-                     I'm a full stack developer with two years of experience.
+                     I'm a full stack developer with two years of experience. I am a self-taught developer who has been designing and building websites for fun since I was a child.<br><br>
+                     
+                     I am proficient in front-end development, using: CSS, HTML, jQuery, and Javascript. I am proficient in back-end development, using: C#, Java, SQL, MySQL, and Ruby on Rails.<br><br>
+                     
+                     I have an interesting range of experience, including an art and writing degree, which means that I also have an eye for design and can create and alter graphics and photos. I enjoy building websites and apps from scratch, focusing on the user and the ease of use for them.<br><br>
+                     
+                     Please check out my projects and let me know if you have any questions!
                   </p>
                 </div>
             </div>
@@ -220,9 +228,8 @@
          </div>
             
    
-<!-- Project Modals-->
-<!-- Project 1 -->
-<div id="Project1Modal" class="Modal">
+<!-- Project Modal -->
+<div id="ProjectModal" class="Modal">
   <!-- Modal content -->
   <div class="ProjectModalContent">
      <!-- Close button - positioned in upper right corner -->
@@ -234,23 +241,29 @@
     <div class="PictureFlex">
         <div class="PictureHolder">
             <!-- Zoom in picture, opens Modal of the image but larger -->
-            <i class="fas fa-search-plus ZoomImage"></i>
-            <img class="ProjectImage" id="Project1Image" src="~/Images/Projects/Project1-1.png" alt="" />
+            <div class="ZoomFlex">
+                <i class="fas fa-search-plus ZoomImage"></i>
+            </div>
+            <!-- This flex is for small screen sizes, it opens the image in a new tab so the user can actually see it -->
+            <div class="SmallZoomFlex">
+                <i class="fas fa-search-plus SmallScreenZoomImage"></i>
+            </div>
+            <img class="ProjectImage" id="ProjectImage" src="~/Images/Projects/Project1-1.png" alt="" />
         </div>
             <!-- Buttons for seeing the next/previous picture -->
-            <div> 
+            <div class="PictureButtons"> 
                 <i class="fas fa-arrow-circle-left PictureButtonLeft"></i>
                 <i class="fas fa-arrow-circle-right PictureButtonRight"></i>
             </div>
     </div>
     <!-- Text about the first picture -->
     <div class="ModalFlexChild">
-        <h2>Scrum Flow</h2>
+        <h2 id="ProjectModalTitle"></h2>
         <hr class="ModalLine">
-            <p class="ModalLongText" id="Project1Text">
+            <p class="ModalLongText" id="ProjectText">
                 Scrum Flow's main functionality is as a digital Scrum Board. Here you can see the Scrum Board layout; each card represents a task. Users can drag their tasks to each category as they work on them.
-            </p><br>
-            <button class="ProjectButton">Visit</button>
+                Scrum Flow's main functionality is as a digital Scrum Board. Here you can see the Scrum Board layout; each card represents a task. Users can drag their tasks to each category as they work on them.
+            </p>
         </div>
     </div>
   </div>

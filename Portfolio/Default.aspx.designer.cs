@@ -17,6 +17,12 @@ namespace Portfolio {
 		
 		protected System.Web.UI.WebControls.Button Project1Btn;
 		
+		protected System.Web.UI.WebControls.Button Project2Btn;
+		
+		protected System.Web.UI.WebControls.Button Project3Btn;
+		
+		protected System.Web.UI.WebControls.Button Project4Btn;
+		
 		protected System.Web.UI.WebControls.Panel panel;
 		
 		protected System.Web.UI.WebControls.TextBox EmailNameTextBox;
