@@ -31,12 +31,16 @@ $(document).ready(function () {
 // Set up project pictures and text for the modals to use as the user looks at more pictures //
 var Project1Pictures = ['~/Images/Projects/Project1-1.png', '~/Images/Projects/Project1-2.png', '~/Images/Projects/Project1-3.png', '~/Images/Projects/Project1-4.png', '~/Images/Projects/Project1-5.png', '~/Images/Projects/Project1-6.png', '~/Images/Projects/Project1-7.png', '~/Images/Projects/Project1-8.png'];
 var Project1Text = ['Scrum Flow\'s main functionality is as a digital Scrum Board. Here you can see the Scrum Board layout; each card represents a task. Users can drag their tasks to each category as they work on them.', 'blah2', 'blah3', 'blah4', 'blah5', 'blah6', 'blah7', 'blah8'];
+var Project2Pictures = ['~/Images/Projects/Project2-1.png', '~/Images/Projects/Project2-2.png', '~/Images/Projects/Project2-3.png', '~/Images/Projects/Project2-4.png'];
+var Project2Text = ['Teachers can add and edit students to their class, setting up a login for each student user.', 'After adding students, teachers can give and take points from each student when they complete tasks, misbehave, or need reinforcement. A sound plays for giving points and a different sound plays for taking points.', 'Teachers can also create a class store, adding items to the store and giving them a point value.', 'Students can then login to see their total amount of points and buy items.', 'Teachers are alerted when students buy items, so if the item is a physical item, the teacher can then give the student their prize.', 'Students can only buy one item a week, but they can log in to see their points and any messages from their teacher.'];
+var Project3Pictures = ['~/Images/Projects/Project2-1.png', '~/Images/Projects/Project2-2.png', '~/Images/Projects/Project2-3.png', '~/Images/Projects/Project2-4.png'];
+var Project3Text = ['Blah blah headache tracker balck ach card represents a task. Users can drag their tasks to each category as they work on them.', 'blah2', 'blah3', 'blah4'];
+var Project4Pictures = ['~/Images/Projects/Project2-1.png', '~/Images/Projects/Project2-2.png', '~/Images/Projects/Project2-3.png', '~/Images/Projects/Project2-4.png'];
+var Project4Text = ['Blah blah gift planner balck ach card represents a task. Users can drag their tasks to each category as they work on them.', 'blah2', 'blah3', 'blah4'];
 
 // Set up the current project information to be project one; this will change when the user clicks on a different project //
 var CurrentProjectPictures = Project1Pictures;
 var CurrentProjectText = Project1Text;
-var CurrentPictureSource = "Project1Image";
-var CurrentTextSource = "Project1Text";
 var CurrentIndex = 0;
 var ContinueLeftArrow = false;
 var ContinueRightArrow = true;
@@ -52,7 +56,7 @@ function CheckProjectArrows() {
     }
     // Otherwise, make the arrow the right color and add the Hover class //
     else {
-        $(".PictureButtonRight").css('color', '#bc8f8f');
+        $(".PictureButtonRight").css('color', '#A5BEA8');
         $(".PictureButtonRight").addClass('Hover');
         $(".PictureButtonRight").removeClass('NoHover');
         ContinueRightArrow = true;
@@ -67,7 +71,7 @@ function CheckProjectArrows() {
     }
     // Otherwise, make the arrow the right color and add the Hover class //
     else {
-        $(".PictureButtonLeft").css('color', '#bc8f8f');
+        $(".PictureButtonLeft").css('color', '#A5BEA8');
         $(".PictureButtonLeft").addClass('Hover');
         $(".PictureButtonLeft").removeClass('NoHover');
         ContinueLeftArrow = true;
@@ -81,8 +85,9 @@ $(".PictureButtonRight").click(function () {
         CurrentIndex++;
         CheckProjectArrows();
         // Update the picture with the next one in the array and then update the text to match //
-        $('#' + CurrentPictureSource).attr('src', Project1Pictures[CurrentIndex]);
-        $('#' + CurrentTextSource).text(CurrentProjectText[CurrentIndex]);
+        $('#ProjectImage').attr('src', CurrentProjectPictures[CurrentIndex]);
+        $('#ProjectText').text(CurrentProjectText[CurrentIndex]);
+        UpdateLargePicture();
     }
 });
 
@@ -93,25 +98,106 @@ $(".PictureButtonLeft").click(function () {
         CurrentIndex--;
         CheckProjectArrows();
         // Update the picture with the next one in the array and then update the text to match //
-        $('#' + CurrentPictureSource).attr('src', Project1Pictures[CurrentIndex]);
-        $('#' + CurrentTextSource).text(CurrentProjectText[CurrentIndex]);
+        $('#ProjectImage').attr('src', CurrentProjectPictures[CurrentIndex]);
+        $('#ProjectText').text(CurrentProjectText[CurrentIndex]);
+        UpdateLargePicture();
     }
 });
 
+// Update the large picture (zoom in image) with the currently selected picture //
+function UpdateLargePicture() {
+    document.getElementById('LargePicture').style.backgroundImage = "url(" + CurrentProjectPictures[CurrentIndex] + ")";
+}
+
 // On click of the zoom image, we need to make the current picture larger, so show the large picture modal with the picture in it //
 $(".ZoomImage").click(function () {
-    $('.LargePicture').show("scale", { percent: 100, direction: 'vertical' }, 1000);
-    $(".IconBackground").show();
+    // Show the placeholder //
+    $(".ModalPlaceholder").show();
+    // Slide the modal to the right and then slide the large picture from the left //  
+    $(".Modal").hide("slide", { direction: "right" }, 500, function () {
+        $(".LargePictureBackground").show("slide", { direction: "left" }, 500);
+        $(".IconBackground").show();
+    });
 });
 
-// Project button one click function - show the project 1 modal //
+// On click of the small screen zoom image, open the large image in a new tab //
+$(".SmallScreenZoomImage").click(function () {
+    var win = window.open(CurrentProjectPictures[CurrentIndex], '_blank');
+    if (win) {
+        win.focus();
+    } 
+});
+
+// On click of the large image close button, hide the large picture and close button //  
+$(".IconBackground").click(function () {
+    $(".IconBackground").hide();
+    // Slide the big picture to the right and then slide the modal in from the left // 
+    $('.LargePictureBackground').hide("slide", { direction: "right" }, 500, function () {
+            $("#ProjectModal").show("slide", { direction: "left" }, 500);
+    });
+});
+
+// Project button one click function - show the project modal for project one // 
 $("#Project1Btn").click(function () {
-    $("#Project1Modal").show();
+    UpdateProjectModal(1);
     return false;
 });
 
+// Project button two click function - show the project modal for project two // 
+$("#Project2Btn").click(function () {
+    UpdateProjectModal(2);
+    return false;
+});
+
+// Project button three click function - show the project modal for project three // 
+$("#Project3Btn").click(function () {
+    UpdateProjectModal(3);
+    return false;
+});
+
+// Project button four click function - show the project modal for project four // 
+$("#Project4Btn").click(function () {
+    UpdateProjectModal(4);
+    return false;
+});
+
+function UpdateProjectModal(projectNumber) {
+    // If this is project one, update accordingly //
+    if (projectNumber == 1) {
+        CurrentProjectText = Project1Text;
+        CurrentProjectPictures = Project1Pictures;
+        $("#ProjectModalTitle").text("Scrum Flow");
+    }
+    // If this is project two, update accordingly // 
+    else if (projectNumber == 2) {
+        CurrentProjectPictures = Project2Pictures;
+        CurrentProjectText = Project2Text;
+        $("#ProjectModalTitle").text("Class Store and Points");
+    }
+    else if (projectNumber == 3) {
+        CurrentProjectPictures = Project3Pictures;
+        CurrentProjectText = Project3Text;
+        $("#ProjectModalTitle").text("Headache Tracker");
+    }
+    else if (projectNumber == 4) {
+        CurrentProjectPictures = Project4Pictures;
+        CurrentProjectText = Project4Text;
+        $("#ProjectModalTitle").text("Gift Planner");
+    }
+    // Reset the index to 0, set the first picture and text (inside the modal), and update the large picture (for zooming in) //
+    CurrentIndex = 0;
+    $("#ProjectImage").attr("src", CurrentProjectPictures[0]);
+    $("#ProjectText").text(CurrentProjectText[0]);
+    UpdateLargePicture();
+
+    // Now show the modal itself and the placeholder //
+    $("#ProjectModal").show();
+    $(".ModalPlaceholder").show();
+}
+
 // Close button click function for the project modals - closes the modal // 
 $(".Close").click(function () {
+    $(".ModalPlaceholder").hide();
     $(".Modal").fadeOut();
 });
 
@@ -124,7 +210,7 @@ var AnimationFinished = true;
 var BounceUpDone = false;
 var BounceDownDone = false;
 
-// Click function from the arrows on the original page load //
+// Click function from the arrows on the original page load // 
 $(".DownArrow").click(function () {
     // Slide up the jumbotron and down the first page //
     $(".Jumbotron").slideUp(function () {
