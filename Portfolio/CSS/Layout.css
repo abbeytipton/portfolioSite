@@ -42,9 +42,9 @@ h1, h2 {
     color: #A5BEA8;
 }
 
-.fas:hover, .fab:hover{
-    color: #677669;
-}
+    .fas:hover, .fab:hover {
+        color: #677669;
+    }
 
 /* The JS uses these classes to make button icons look disabled */
 .Hover:hover {
@@ -85,7 +85,7 @@ h1, h2 {
     font-size: 24px;
     font-family: 'Abril Fatface', cursive;
     color: #536954;
-    margin: 50px 0 0 50px;
+    margin: 50px 0 0 45px;
     width: 40%;
     padding: 7px;
     display: none;
@@ -115,52 +115,52 @@ h1, h2 {
     display: none;
 }
 
-/* Animate the spans */
-.DownArrow span {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #677669;
-    border-right: 3px solid #677669;
-    animation: animate 1s linear infinite;
-}
+    /* Animate the spans */
+    .DownArrow span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 3px solid #677669;
+        border-right: 3px solid #677669;
+        animation: animate 1s linear infinite;
+    }
 
-.DownArrow span:nth-child(1) {
-    top: -30px;
-    left: -30px;
-    animation-delay: 0s;
-}
+        .DownArrow span:nth-child(1) {
+            top: -30px;
+            left: -30px;
+            animation-delay: 0s;
+        }
 
-.DownArrow span:nth-child(2) {
-    top: -15px;
-    left: -15px;
-    animation-delay: 0.2s;
-}
+        .DownArrow span:nth-child(2) {
+            top: -15px;
+            left: -15px;
+            animation-delay: 0.2s;
+        }
 
-.DownArrow span:nth-child(3) {
-    top: 0;
-    left: 0;
-    animation-delay: 0.4s;
-}
+        .DownArrow span:nth-child(3) {
+            top: 0;
+            left: 0;
+            animation-delay: 0.4s;
+        }
 
 @keyframes animate {
-0% {
-    border-color: #677669;
-    transform: translate(0,0);
-}
+    0% {
+        border-color: #677669;
+        transform: translate(0,0);
+    }
 
-20% {
-    border-color: #677669;
-    transform: translate(15px,15px);
-}
+    20% {
+        border-color: #677669;
+        transform: translate(15px,15px);
+    }
 
-20.1%,100% {
-    border-color: #A5BEA8;
-}
+    20.1%,100% {
+        border-color: #A5BEA8;
+    }
 }
 
 /* Project pages */
@@ -184,7 +184,7 @@ h1, h2 {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 98vw;
+    width: 100%;
     padding-bottom: 20px;
 }
 
@@ -200,6 +200,7 @@ h1, h2 {
     width: 60%;
     border-radius: 50%;
     box-shadow: 5px 10px 18px #888888;
+    margin-left: 20%;
 }
 
 .FlexChild {
@@ -247,7 +248,7 @@ h1, h2 {
     text-shadow: 0px;
     border-style: none;
     cursor: pointer;
-    margin-left: 79%;
+    float: right;
     margin-bottom: 40px;
 }
 
@@ -289,17 +290,17 @@ h1, h2 {
     left: 20px;
 }
 
-.SeeNextArrow .fas, .SeePreviousArrow .fas {
-    font-size: 48px;
-    margin-left: 35%;
-}
+    .SeeNextArrow .fas, .SeePreviousArrow .fas {
+        font-size: 48px;
+        margin-left: 35%;
+    }
 
 /* Pages to hide on load */
 #PageTwo, #AboutPage, #ContactPage {
     display: none;
 }
 
-#CloseBtn {
+.CloseBtn {
     font-size: 48px;
     margin-left: 45%;
 }
@@ -310,7 +311,7 @@ input[type=text], textarea {
     margin-left: 40px;
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 label {
@@ -325,22 +326,20 @@ label {
     justify-content: flex-start;
 }
 
-.ContactFlex:first-of-type {
-    margin-top: 40px;
-}
+    .ContactFlex:first-of-type {
+        margin-top: 40px;
+    }
 
 /* Modal for project info */
 .Modal {
     display: none;
-    position: fixed; 
-    z-index: 50; 
+    position: fixed;
+    z-index: 50;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: #fff; 
-    background-color: rgba(0,0,0,0.7); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .ProjectModalContent {
@@ -348,12 +347,12 @@ label {
     margin: 7% auto;
     padding: 15px 10px;
     border: 1px solid #888;
-    width: 60%;
-    height: 50%;
+    width: 85%;
     text-align: center;
     border-radius: 4px;
 }
 
+/* Close button - positioned to stay in upper right corner no matter screen size */
 .CloseButtonFlex {
     display: flex;
     justify-content: flex-end;
@@ -369,95 +368,104 @@ label {
     z-index: 10;
 }
 
-.PictureButtonLeft, .PictureButtonRight {
-    font-size: 48px !important;
+/* This div holds the left and right buttons */
+.PictureButtons {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: 0;
+    vertical-align: top;
+    text-align: center;
 }
 
+/* Buttons to move the content to left or right */
+.PictureButtonLeft, .PictureButtonRight {
+    font-size: 48px !important;
+    padding: 0 !important;
+    margin: 10px 10px 0 0 !important;
+}
+
+/* Flex holds the picture and text to left and right at large screen sizes */
 .ModalFlex {
     display: flex;
-    flex-direction: row;
     width: 100%;
     margin: 0 auto;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
+    flex-direction: row;
 }
 
-.PictureHolder {
-    min-height: 80%;
-    max-height: 80%;
-    max-width: 100%;
-    margin: 0 auto;
-    margin-top: -10px;
-    position: relative;
-}
-
-.PictureFlex {
-    display: flex;
-    flex-direction: column;
-    max-width: 70%;
-    min-width: 70%;
-    height: 90%;
-}
-
-.ModalFlexChild {
-    margin: 0 auto;
-    padding: 5px;
-    text-align: center;
-    min-width: 25%;
-    max-width: 25%;
-    height: 100%;
-}
-
+/* The project image (small) */
 .ProjectImage {
-    height: 100%;
-    object-fit: contain;
     border: 2px solid black;
     border-radius: 4px;
+    width: 80%;
 }
 
+/* Line between the title and the text */
 .ModalLine {
     width: 80%;
     background-color: #536954;
     height: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
+/* Project text */
 .ModalLongText {
     text-align: justify;
     min-height: 45%;
     max-height: 45%;
+    font-size: 13px;
+    line-height: 17px;
 }
 
-.ZoomImage {
-    position: absolute;
-    z-index: 5;
-    font-size: 48px;
-    bottom: 0;
-    left: 6%;
-}
-
-.LargePicture {
+/* This placeholder is here to make the background stay consistent when transitions occur */
+.ModalPlaceholder {
+    position: fixed;
+    z-index: 40;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    background-color: rgba(0,0,0,0.7);
     display: none;
-    z-index: 5000;
-    position: relative;
-    margin-top: 50px;
-    margin-left: 2%;
-    background-image: url("../Images/Projects/Project1-1.png"); 
-    height: 80vh; 
-    max-width: 80vw;
-    margin-left: 10vw;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    border: 2px solid black;
 }
 
+/* Background of the large picture (shows on click only) */
+.LargePictureBackground {
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+
+/* The large picture itself */
+.LargePicture {
+    z-index: 5000;
+    position: absolute;
+    background-image: url("../Images/Projects/Project1-1.png");
+    height: 90%;
+    max-width: 90%;
+    width: 90%;
+    margin-left: 5%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 25px;
+}
+
+/* Close button for the zoomed in image */
 .CloseLargeImageFlex {
     display: flex;
     justify-content: flex-end;
     margin-top: -35px;
-    margin-left: 1180px;
+    margin-right: -20px;
     padding: 0;
 }
 
@@ -465,3 +473,213 @@ label {
     background: radial-gradient(white 50%, transparent 50%);
 }
 
+/* On large screens, we hide the small zoom button */
+.SmallZoomFlex {
+    display: none;
+}
+
+/* The zoom button for large screens - positioned to lower left corner of the image */
+.ZoomFlex {
+    position: relative;
+    display: inline-block;
+}
+
+.ZoomImage {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 48px;
+}
+
+/* The picture flex holds the picture and left and right buttons on top of each other */
+.PictureFlex {
+    display: flex;
+    max-width: 60%;
+    min-width: 60%;
+    height: 90%;
+    flex-direction: column;
+}
+
+/* Flex child for the modal - this is for the project text and buttons */
+.ModalFlexChild {
+    margin: -20px 10px 0 0;
+    padding: 0;
+    text-align: center;
+    min-width: 38%;
+    max-width: 38%;
+    height: 100%;
+}
+
+.ProjectModalContent {
+    height: 55%;
+}
+
+/* The picture holder holds just the picture */
+.PictureHolder {
+    min-height: 80%;
+    max-height: 80%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: -5px;
+    position: relative;
+}
+
+/* On screens 800px or smaller */
+@media screen and (max-width: 800px) {
+
+    .IntroHeader {
+        width: 100%;
+    }
+
+    .IntroText {
+        width: 80%;
+    }
+
+    /* Change the modal flex to be a column flex so the picture and text are on top of each other instead of side to side */
+    .ModalFlex {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    /* Change up the picture flex to take up more space */
+    .PictureFlex {
+        display: flex;
+        max-width: 100%;
+        min-width: 100%;
+        margin-left: 0%;
+        height: 40%;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: -10px;
+    }
+
+    /* Same for the flex children */
+    .ModalFlexChild {
+        padding: 0;
+        text-align: center;
+        min-width: 90%;
+        max-width: 90%;
+        margin-left: 5%;
+        height: 55%;
+    }
+
+    .ProjectModalContent {
+        height: 60%;
+    }
+
+    /* Change up the picture button sizes */
+    .PictureButtonRight, .PictureButtonLeft {
+        font-size: 32px !important;
+    }
+
+    /* Change the picture holder size and position */
+    .PictureHolder {
+        min-height: 90%;
+        max-height: 90%;
+        padding: 0 !important;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* Hide the big zoom image and show the small one */
+    .ZoomImage {
+        display: none !important;
+    }
+
+    .SmallZoomFlex {
+        display: inline-block;
+        position: relative;
+    }
+
+    .SmallScreenZoomImage {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        font-size: 24px;
+    }
+
+    /* Change the project image size so it doesn't overlap other content */
+    .ProjectImage {
+        width: 50%;
+    }
+}
+
+/* On screens 700px or smaller */
+@media screen and (max-width: 700px) {
+
+    /* Change the project image size so it doesn't overlap other content */
+    .ProjectImage {
+        width: 60%;
+    }
+}
+
+/* On screens 600px or smaller */
+@media screen and (max-width: 600px) {
+
+    /* Change the project image size so it doesn't overlap other content */
+    .ProjectImage {
+        width: 70%;
+    }
+
+    /* We don't show the picture holder on small screens, and then we make the other flex child much wider */
+    .ProjectPictureHolder {
+        display: none;
+    }
+
+    .FlexChild {
+        width: 90%;
+    }
+
+    /* Change up the size and break/margin/padding of headers */
+    h1, h2 {
+        font-size: 32px;
+        word-wrap: break-word;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Deal with the navbar */
+    .Icons {
+        margin-right: 0px;
+    }
+
+    /* Deal with the index/jumbotron */
+    .IntroHeader {
+        margin: 75px 0 0 15px;
+    }
+
+    .IntroText {
+        margin: 5px 0 0 15px;
+    }
+
+    .Overlay {
+        background: rgba(158, 160, 116, .80);
+    }
+
+    /* Deal with the page titles and arrows */
+    .PageFirstTitle {
+        margin-top: 15px;
+    }
+
+    .SeeNextArrow {
+        bottom: 20px;
+        left: 10px;
+    }
+
+    .SeePreviousArrow {
+        top: -10px;
+        left: 10px;
+    }
+}
+
+/* On screens 400px or smaller */
+@media screen and (max-width: 400px) {
+
+    /* Change the project image size so it doesn't overlap other content */
+    .ProjectImage {
+        width: 85%;
+    }
+}
