@@ -1,0 +1,33 @@
+Class Store and Points (Class SAP) has two views: teacher and student. When a teacher logs in, they see their dashboard.<br><br>
+Teachers can set up their classrooms by adding students and adding items to their class store. Then, they can start giving and taking points and having students log in
+to spend their points.<br><br><i>Note: Click the Magnifying Glass in the bottom left corner of any image to view the image larger. Click the left and right arrow buttons to see more.</i>
+*
+On the Edit Students page, teachers can add, edit, and delete students from their classroom. Teachers can also update or reset student user's passwords.
+<br><br>Because student users are assigned to teachers, usernames can be reused in the database, which means that teachers can
+make student usernames extremely simple and easy to remember. This makes the application more accessible to younger students.
+*
+The Edit Store page is what sets Class SAP apart from other, similar applications. Here, teachers can add items to their store, which students can then buy. All of this is saved
+and handled online, rather than teachers having to keep up with slips of paper, posters, or notebooks with this data in it.<br><br>
+Teachers can add actual physical items, such as a 'Fancy Pencil', or they can add items such as 'Stuffed Animal Day', which do not cost them money to provide.<br><br>
+Also on this page, teachers can edit items, including their price and the quantity available.
+*
+After adding students to their classroom and items to their store, teacher users can begin to use Class SAP to give and take points.<br><br>
+Points can be given when students complete tasks, show kindness, or follow directions. Points can be removed
+when students aren't completing work or following directions.<br><br>
+When points are given, a chime-like sound plays, and when points are taken, a buzzer-like sound plays.
+This enables teachers to use their phone or a tablet to give and take points; when students hear the noises, they will know their teacher is watching
+and giving or taking points.
+*
+When students log in, they see their own dashboard page. Students can log in to see their total point value, browse their teacher's store, and buy items.<br><br>
+Students can also receive encouraging messages from their teacher; when they log in, if they have a message, they will see an alert on their dashboard and in their menu bar letting them know
+that they need to check their inbox.
+*
+Students can buy items from the store if they have not bought an item already in the calendar week. Limiting purchases helps teach students about long-term goals, saving, and being
+patient.<br><br>
+After a student buys an item from the store, their teacher will receive a notification within the Class SAP system. The teacher can then give the student any physical items
+they have bought, or be informed if they have bought a non-physical item.<br><br>
+After buying an item from the store, students cannot buy more items for the remainder of the week.
+*
+The purpose of this web application is to help teachers keep track of student behavior without creating more work for them. It is also to help inspire students to work hard, learn to reach
+goals, and see the consequences and rewards of their behavior.<br><br>
+This web application works on computers, tablets, and phones. It was built with: Ruby on Rails, PostgreSQL, HTML, CSS, jQuery, and JavaScript.

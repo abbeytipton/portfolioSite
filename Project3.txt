@@ -1,0 +1,21 @@
+Headache Tracker has a clean and simple layout, which is optimized for both large and small screens.<br><br>
+After logging in, users are greeted with their usernames and can then choose if they would like to log a new headache, view their graphs, or edit their information.<br><br>
+<i>Note: Click the Magnifying Glass in the bottom left corner of any image to view the image larger. Click the left and right arrow buttons to see more.</i>
+*
+When logging a headache, a user chooses the time and date that the headache started and ended, and then they answer a series of yes or no questions based on their triggers.
+If the trigger happened during or before their headache, the user chooses yes, and, if not, they choose no.<br><br>
+After answering each question, the user saves the log. The log can be edited later if necessary.
+*
+After logging a headache, a user can see their updated graph of triggers. Items with higher bars in the graph contributed to headaches more often than other triggers.<br><br>
+Using this graph, users can see what is contributing to more headaches, in order to avoid those triggers specifically. The image of the 'All Triggers' graph can be saved to the user's
+device.
+*
+Clicking on a trigger in the bar graph will show the data for just that trigger to the right; here you can see that the user was dehydrated 33% of the time during their twelve
+logged headaches.<br><br>These detail graphs can be used to pinpoint specific triggers and problems. The image of any trigger-specific graph can be saved to the user's device.
+*
+When a user logs in for the first time, they are asked to choose which triggers they want to include in their personalized Headache Tracker, before they can start logging
+headaches.<br><br>Users can update their triggers at any time; the first items in the list are common headache triggers provided by Headache Tracker. The user can check the items they want to include,
+and at the bottom, they can add up to five custom triggers.
+*
+The purpose of this web application is to help users find headache triggers in order to avoid them. It is presented in a simple, clean, easy-to-use way that should make logging headaches
+easy and fast.<br><br>This web application works on computers, tablets, and phones. It was built with: Ruby on Rails, PostgreSQL, HTML, CSS, jQuery, JavaScript, and Chart.js.
