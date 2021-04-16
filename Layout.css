@@ -11,7 +11,7 @@ body, html {
 
 h1, h2 {
   font-family: 'Abril Fatface', cursive;
-  line-height: 1px;
+  line-height: 1;
   letter-spacing: 2px;
   color: #536954;
 }
@@ -178,20 +178,19 @@ h1, h2 {
 
 /* Project pages */
 .ProjectsView {
-  height: 100vh;
+  width: 100vh;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.ProjectsView, .OtherPageView {
-  display: none;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+.ProjectSlick {
+  z-index: 0 !important;
 }
 
 .OtherPageView {
-  z-index: 20;
+  z-index: 2000;
   height: 60vh;
-  background-color: transparent;
+  background-color: white;
   border-radius: 8px;
   width: 70%;
   margin-left: 15%;
@@ -201,12 +200,21 @@ h1, h2 {
   position: fixed;
 }
 
+.ProjectsFlex {
+  height: 48vh;
+}
+
+.OtherFlex {
+  height: 100%;
+  overflow: hidden;
+}
+
 .ProjectsFlex, .OtherFlex {
-  display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  display: flex;
 }
 
 .ProjectPictures {
@@ -234,6 +242,7 @@ h1, h2 {
 .FlexChildOther {
   width: 60%;
   padding: 8px;
+  height: 100%;
 }
 
 .ProjectText {
@@ -304,7 +313,7 @@ h1, h2 {
 }
 
 /* Pages to hide on load */
-#PageTwo, #AboutPage, #ContactPage {
+#AboutPage, #ContactPage {
   display: none;
 }
 
@@ -312,7 +321,7 @@ h1, h2 {
   font-size: 48px;
   text-align: center;
   z-index: 10;
-  color: #A5BEA8;
+  color: transparent;
   margin-right: 20px;
   margin-top: 35px;
 }
@@ -359,6 +368,11 @@ h1, h2 {
   width: 100%;
   height: 0;
   overflow: auto;
+}
+
+.ProjectPages {
+  height: 0;
+  overflow: hidden;
 }
 
 .ProjectModalContent {
@@ -450,7 +464,6 @@ h1, h2 {
 
 /* The video at the end of each project carousel */
 .VideoHolder {
-  border: 2px solid orange;
   display: flex;
   width: 50%;
   height: 90%;
@@ -471,6 +484,24 @@ h1, h2 {
   outline: none;
   position: absolute;
   top: 40%;
+}
+
+.SlickButtonDown {
+  background-color: transparent;
+  display: inline-block;
+  border: 0;
+  font-size: 40px;
+  outline: none;
+  position: absolute;
+  left: 30px;
+}
+
+.SlickButtonUp {
+    display: none !important;
+}
+
+.SlickButtonDown {
+    bottom: 10%;
 }
 
 .SlickButtonLeft {
@@ -597,6 +628,7 @@ h1, h2 {
 
   .OtherPageView {
     margin-top: 80px;
+    z-index: 100;
   }
 
   .ContactLink {
