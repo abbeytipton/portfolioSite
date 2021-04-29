@@ -1,11 +1,12 @@
-/* Body/page tags */
+/* Default styling for all screens and all styling for large screens /*
 
+/* Body/page tags */
 body, html {
   font-family: 'Merriweather Sans', sans-serif;
   font-weight: 500 !important;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -47,14 +48,13 @@ h1, h2 {
 }
 
 /* First page (on load) */
-
 /* Jumbotron has the main background image and the overlay is a color overlay on top of it */
 .Jumbotron {
   background-image: url("Images/PageRelated/homepageBackground.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   margin: auto;
   position: absolute;
@@ -64,7 +64,8 @@ h1, h2 {
 
 .Overlay {
   background: rgba(158, 160, 116, .60);
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100%;
   z-index: 2;
   width: 100%;
@@ -141,52 +142,43 @@ h1, h2 {
 @keyframes animate {
   0% {
     border-color: #677669;
-    transform: translate(0,0);
+    transform: translate(0, 0);
   }
 
   20% {
     border-color: #677669;
-    transform: translate(15px,15px);
+    transform: translate(15px, 15px);
   }
 
-  20.1%,100% {
+  20.1%, 100% {
     border-color: #A5BEA8;
   }
 }
 
-/* Arrows */
-.SeeNextArrow, .SeePreviousArrow {
-  z-index: 20;
-  position: absolute;
-  display: none;
-}
-
-.SeeNextArrow {
-  bottom: 60px;
-  left: 20px;
-}
-
-.SeePreviousArrow {
-  top: 30px;
-  left: 20px;
-}
-
-.SeeNextArrow .fas, .SeePreviousArrow .fas {
-  font-size: 48px;
-  margin-left: 35%;
-}
-
 /* Project pages */
-.ProjectsView {
-  width: 100vh;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
 .ProjectSlick {
   z-index: 0 !important;
+  padding: 0 !important;
+  margin: 30px 0 30px 0 !important;
+  min-height: 100vh;
+  height: 100vh;
 }
 
+.slick-slide {
+  outline: none;
+}
+
+.fancybox {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+.ProjectsFlex {
+  height: 40vh !important;
+  margin-top: 20px;
+}
+
+/* Other pages - viewed from the nav bar */
 .OtherPageView {
   z-index: 2000;
   height: 60vh;
@@ -198,10 +190,6 @@ h1, h2 {
   padding: 0;
   border: 2px solid #A5BEA8;
   position: fixed;
-}
-
-.ProjectsFlex {
-  height: 48vh;
 }
 
 .OtherFlex {
@@ -222,20 +210,19 @@ h1, h2 {
 }
 
 .AboutPicture {
-  width: 60%;
+  width: 80%;
   border-radius: 50%;
-  box-shadow: 5px 10px 18px #888888;
+  box-shadow: 5px 5px 5px #888888;
   margin-left: 8%;
-  margin-top: 2%;
+  margin-top: 10%;
 }
 
 .FlexChild {
-  margin-top: 60px;
   width: 50%;
+  height: auto;
 }
 
 .ProjectPictureHolder {
-  margin-top: 60px;
   width: 35%;
 }
 
@@ -246,7 +233,6 @@ h1, h2 {
 }
 
 .ProjectText {
-  margin-top: 40px;
   letter-spacing: 1px;
   color: #536954;
   font-family: 'Merriweather Sans', sans-serif;
@@ -259,13 +245,12 @@ h1, h2 {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
-.ProjectButton {
+.ProjectButton, .OtherButton {
   background-color: #536954;
   color: white;
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 16px;
   padding: 10px;
-  width: 120px;
   border-radius: 6px;
   margin-top: 20px;
   box-shadow: none;
@@ -276,21 +261,12 @@ h1, h2 {
   cursor: pointer;
 }
 
+.ProjectButton {
+  width: 120px;
+}
+
 .OtherButton {
-  background-color: #536954;
-  color: white;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 16px;
-  padding: 10px;
   width: 160px;
-  border-radius: 6px;
-  margin-top: 20px;
-  box-shadow: none;
-  font-weight: 300 !important;
-  text-decoration: none;
-  text-shadow: 0px;
-  border-style: none;
-  cursor: pointer;
   float: right;
   margin-bottom: 40px;
 }
@@ -310,11 +286,6 @@ h1, h2 {
   width: 80%;
   background-color: #536954;
   height: 4px;
-}
-
-/* Pages to hide on load */
-#AboutPage, #ContactPage {
-  display: none;
 }
 
 .CloseBtn {
@@ -351,12 +322,17 @@ h1, h2 {
   padding: 0px;
   width: auto;
   margin: 0;
-  height: 20px;
+  height: auto;
   box-shadow: none;
   text-decoration: none;
   text-shadow: 0px;
   border-style: none;
   cursor: pointer;
+}
+
+/* Pages to hide on load */
+#AboutPage, #ContactPage {
+  display: none;
 }
 
 /* Modal for project info */
@@ -367,7 +343,7 @@ h1, h2 {
   top: 0;
   width: 100%;
   height: 0;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .ProjectPages {
@@ -377,7 +353,7 @@ h1, h2 {
 
 .ProjectModalContent {
   background-color: #fff;
-  margin: 7% auto;
+  margin: 5% auto;
   padding: 15px 10px;
   border: 1px solid #888;
   width: 85%;
@@ -434,18 +410,18 @@ h1, h2 {
 .ModalLongText {
   text-align: justify;
   min-height: 45%;
-  max-height: 45%;
+  max-height: 90%;
   font-size: 16px;
 }
 
 /* The picture flex holds the picture and left and right buttons on top of each other */
 .PictureFlex {
-  max-width: 65%;
-  min-width: 65%;
+  max-width: 60%;
+  min-width: 60%;
   height: 100%;
   padding: 0;
-  margin-left: 30px;
-  margin-right: 0;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
 /* Flex child for the modal - this is for the project text and buttons */
@@ -454,8 +430,9 @@ h1, h2 {
   padding: 0 50px 0 0;
   text-align: center;
   min-width: 30%;
-  max-width: 30%;
-  height: 100%;
+  max-width: 38%;
+  height: 90%;
+  overflow-y: auto;
 }
 
 .ProjectModalContent, .OtherPageView {
@@ -486,22 +463,22 @@ h1, h2 {
   top: 40%;
 }
 
+/* The down button shows on the project slick */
 .SlickButtonDown {
   background-color: transparent;
-  display: inline-block;
+  display: block;
   border: 0;
   font-size: 40px;
   outline: none;
   position: absolute;
-  left: 30px;
+  left: 3%;
+  z-index: 5;
+  bottom: 10%;
 }
 
+/* Hide the up button - only want the down button */
 .SlickButtonUp {
-    display: none !important;
-}
-
-.SlickButtonDown {
-    bottom: 10%;
+  display: none !important;
 }
 
 .SlickButtonLeft {
@@ -512,7 +489,7 @@ h1, h2 {
   right: -40px;
 }
 
-.SlickButtonLeft i, .SlickButtonRight i{
+.SlickButtonLeft i, .SlickButtonRight i {
   background: white;
   border-radius: 55%;
   height: 1em;
@@ -520,211 +497,758 @@ h1, h2 {
   border: 0;
 }
 
-/* On screens 800px or smaller */
-@media screen and (max-width: 800px) {
+/* Media screen queries for different devices */
+/* Small/older iphones */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
 
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* iPhone 5/SEs */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* iPhone 6, 7, and 8 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Large iPhones */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Galaxy S3 */
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Galaxy S4 */
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Galaxy S5 */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Galaxy - large */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Google Pixel */
+@media screen and (device-width: 412px) and (device-height: 823px) and (-webkit-device-pixel-ratio: 3.5) and (orientation: landscape) {
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 50% !important;
+    overflow-y: auto;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+}
+
+/* Landscape general devices */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+
+  /* Make the page scroll on y overflow */
+  body {
+    overflow-y: scroll;
+  }
+
+  /* Hide the project pics on the main page */
+  .ProjectsFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .FlexChild {
+    height: 100% !important;
+    overflow-y: auto;
+  }
+
+  /* Move the carousel button to the top so it doesn't overlap text */
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+
+  .NavBar {
+    margin-left: 50px;
+  }
+
+  /* Change overlay so text is more visible on jumbotron */
+  .Overlay {
+    background: rgba(158, 160, 116, .75);
+  }
+
+  /* Move around intro text */
   .IntroHeader {
     width: 100%;
+    margin-left: 5%;
+  }
+
+  .IntroHeader h1 {
+    font-size: 2em;
   }
 
   .IntroText {
-    width: 80%;
+    margin-left: 5%;
+    width: 50%;
+    font-size: 20px;
+    text-align: justify;
   }
 
-  /* Change the modal flex to be a column flex so the picture and text are on top of each other instead of side to side */
+  /* Change up view of modals to fit entire screen and buttons to be inside them */
+  .CloseBtn {
+    margin-top: 60px;
+    margin-right: 50px;
+  }
+
+  .OtherPageView {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    margin: 0 auto;
+    overflow-y: auto;
+    border: 0;
+    overflow-x: hidden;
+  }
+
+  .OtherFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .OtherText, .OtherText a, .ContactLink {
+    font-size: 22px;
+    overflow-y: auto;
+  }
+
+  .FlexChildOther {
+    overflow-y: auto;
+  }
+
+  .FlexChildOther, .FlexChild {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+  }
+
+  .FlexChild {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  .FlexChild h1 {
+    text-align: center;
+  }
+
+  .ProjectSlick {
+    overflow-y: auto;
+  }
+
+  .ProjectsFlex {
+    flex-direction: column;
+    min-height: 100vh !important;
+    overflow-y: auto;
+  }
+
+  .ProjectButton {
+    font-size: 22px;
+    width: auto;
+  }
+
+  .ProjectsFlex .ProjectPictureHolder {
+    width: auto;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .ProjectPictures {
+    margin: 0 auto;
+  }
+
+  .ProjectText {
+    font-size: 22px;
+    height: auto;
+  }
+
+  .Modal {
+    width: 100vw;
+    margin: 0;
+    border: 0;
+    overflow-y: auto;
+    background-color: white;
+    overflow-x: hidden;
+  }
+
   .ModalFlex {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    overflow: hidden;
   }
 
   /* Change up the picture flex to take up more space */
   .PictureFlex {
-    max-width: 100%;
-    min-width: 100%;
-    margin-left: 0%;
-    height: 40%;
+    max-width: 95%;
+    min-width: 95%;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 40% !important;
     margin-top: -10px;
   }
 
-  /* Same for the flex children */
   .ModalFlexChild {
+    margin: -100px 30px 0 0;
     padding: 0;
     text-align: center;
     min-width: 90%;
     max-width: 90%;
-    margin-left: 5%;
-    height: 55%;
+    height: 55% !important;
   }
 
-  .ProjectModalContent, .OtherPageView {
-    height: 60%;
-  }
-
-  /* Change up the picture button sizes */
-  .PictureButtonRight, .PictureButtonLeft {
-    font-size: 32px !important;
-  }
-
-  /* Change the picture holder size and position */
-  .PictureHolder {
-    min-height: 90%;
-    max-height: 90%;
-    padding: 0 !important;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* Hide the big zoom image and show the small one */
-  .ZoomImage {
-    display: none !important;
-  }
-
-  .SmallZoomFlex {
-    display: inline-block;
-    position: relative;
-  }
-
-  .SmallScreenZoomImage {
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    font-size: 24px;
-  }
-
-  /* Change the project image size so it doesn't overlap other content */
-  .ProjectImage {
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .ModalLongText {
-    font-size: 14px;
-    line-height: default;
-  }
-}
-
-/* On screens 700px or smaller */
-@media screen and (max-width: 700px) {
-
-  .ProjectText {
-    font-size: 13px;
-  }
-
-  /* Change the project image size so it doesn't overlap other content */
-  .ProjectImage {
-    width: 60%;
-  }
-
-  .ModalLongText {
-    font-size: 12px;
-    line-height: default;
-  }
-
-  .ProjectModalContent, .OtherPageView {
-    height: 80%;
-  }
-
-  .OtherPageView {
-    margin-top: 80px;
-    z-index: 100;
-  }
-
-  .ContactLink {
-    font-size: 14px;
-  }
-
-  .FlexChildOther {
-    width: 90%;
-  }
-
-  .OtherPageView .ProjectText {
-    padding: 0;
-    width: 100%;
-  }
-
-  .PictureFlex {
-    height: 20%;
-  }
-}
-
-/* On screens 600px or smaller */
-@media screen and (max-width: 600px) {
-
-  /* Change the project image size so it doesn't overlap other content */
-  .ProjectImage {
-    width: 65%;
-  }
-
-  /* We don't show the picture holder on small screens, and then we make the other flex child much wider */
-  .ProjectPictureHolder {
-    display: none;
-  }
-
-  .FlexChild {
-    width: 90%;
-  }
-
-  /* Change up the size and break/margin/padding of headers */
-  h1, h2 {
+  .ModalFlexChild h2 {
+    padding: 0 10px;
     font-size: 32px;
-    word-wrap: break-word;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
   }
 
-  /* Deal with the navbar */
-  .Icons {
-    margin-right: 0px;
-  }
-
-  /* Deal with the index/jumbotron */
-  .IntroHeader {
-    margin: 75px 0 0 15px;
-  }
-
-  .IntroText {
-    margin: 5px 0 0 15px;
-  }
-
-  .Overlay {
-    background: rgba(158, 160, 116, .80);
-  }
-
-  /* Deal with the page titles and arrows */
-  .PageFirstTitle {
-    margin-top: 15px;
-  }
-
-  .SeeNextArrow {
-    bottom: 20px;
-    left: 10px;
-  }
-
-  .SeePreviousArrow {
-    top: -10px;
-    left: 10px;
-  }
-
-}
-
-/* On screens 400px or smaller */
-@media screen and (max-width: 400px) {
-
-  .OtherPageView {
-    height: 90%;
-    overflow-y: scroll;
-    overflow-x: auto;
+  .Close {
+    margin-top: 35px;
+    margin-right: 40px;
+    margin-bottom: 5px;
   }
 
   .ProjectModalContent {
-    height: 90%;
+    height: 100%;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    border: 0;
+    padding-bottom: 50px;
+  }
+
+  .ModalLongText {
+    overflow-y: auto;
+    font-size: 22px;
+  }
+
+  .ProjectImage {
+    width: auto;
+    height: 80%;
+    margin: 0 auto;
+  }
+
+  .PictureFlex {
+    margin-left: -5%;
+    width: 100%;
+  }
+
+  .Slick {
+    width: 100%;
+    border: 0;
+  }
+
+  .SlickButtonLeft {
+    left: -25px;
+  }
+
+  .SlickButtonRight {
+    right: -15px;
+  }
+
+  .Video {
+    width: 80%;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+/* On screens 800px or smaller - iPads and larger devices */
+@media screen and (max-width: 800px) {
+  .NavBar {
+    margin-left: 50px;
+  }
+
+  .Overlay {
+    background: rgba(158, 160, 116, .75);
+  }
+
+  .IntroHeader {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .IntroHeader h1 {
+    font-size: 2em;
+  }
+
+  .IntroText {
+    margin-left: 5%;
+    width: 50%;
+    font-size: 20px;
+    text-align: justify;
+  }
+
+  .CloseBtn {
+    margin-top: 60px;
+    margin-right: 50px;
+  }
+
+  .OtherPageView {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    margin: 0 auto;
+    overflow-y: auto;
+    border: 0;
+    overflow-x: hidden;
+  }
+
+  .OtherFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .OtherText, .OtherText a, .ContactLink {
+    font-size: 22px;
+    overflow-y: auto;
+  }
+
+  .FlexChildOther {
+    overflow-y: auto;
+  }
+
+  .FlexChildOther, .FlexChild {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+  }
+
+  .SlickButtonDown {
+    top: 0 !important;
+    bottom: initial !important;
+    z-index: 5;
+  }
+
+  .FlexChild {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  .FlexChild h1 {
+    text-align: center;
+  }
+
+  .ProjectSlick {
+    overflow-y: auto;
+  }
+
+  .ProjectsFlex {
+    flex-direction: column;
+    min-height: 100vh !important;
+    overflow-y: auto;
   }
 
   body {
     overflow-y: scroll;
   }
 
+  .ProjectButton {
+    font-size: 22px;
+    width: auto;
+  }
+
+  .ProjectsFlex .ProjectPictureHolder {
+    width: auto;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .ProjectPictures {
+    margin: 0 auto;
+  }
+
+  .ProjectText {
+    font-size: 22px;
+    height: auto;
+  }
+
+  .Modal {
+    width: 100vw;
+    margin: 0;
+    border: 0;
+    overflow-y: auto;
+    background-color: white;
+    overflow-x: hidden;
+  }
+
+  .ModalFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Change up the picture flex to take up more space */
+  .PictureFlex {
+    max-width: 95%;
+    min-width: 95%;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 40% !important;
+    margin-top: -10px;
+  }
+
+  .ModalFlexChild {
+    margin: -100px 30px 0 0;
+    padding: 0;
+    text-align: center;
+    min-width: 90%;
+    max-width: 90%;
+    height: 55% !important;
+  }
+
+  .ModalFlexChild h2 {
+    padding: 0 10px;
+    font-size: 32px;
+  }
+
+  .Close {
+    margin-top: 35px;
+    margin-right: 40px;
+    margin-bottom: 5px;
+  }
+
+  .ProjectModalContent {
+    height: 100%;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    border: 0;
+    padding-bottom: 50px;
+  }
+
+  .ModalLongText {
+    overflow-y: auto;
+    font-size: 22px;
+  }
+
+  .ProjectImage {
+    width: auto;
+    height: 80%;
+    margin: 0 auto;
+  }
+
+  .PictureFlex {
+    margin-left: -5%;
+    width: 100%;
+  }
+
+  .Slick {
+    width: 100%;
+    border: 0;
+  }
+
+  .SlickButtonLeft {
+    left: -25px;
+  }
+
+  .SlickButtonRight {
+    right: -15px;
+  }
+
+  .Video {
+    width: 80%;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+/* On screens 400px or smaller - portrait phones */
+@media screen and (max-width: 400px) {
+  .NavBar {
+    margin-left: 50px;
+  }
+
+  .Overlay {
+    background: rgba(158, 160, 116, .80);
+  }
+
+  .IntroHeader {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  .IntroHeader h1 {
+    font-size: 1.5em;
+  }
+
+  .IntroText {
+    margin-left: 20px;
+    font-size: 16px;
+    width: 60%;
+  }
+
+  .CloseBtn {
+    margin-top: 50px;
+    margin-right: 50px;
+  }
+
+  .OtherPageView {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    border: 0;
+  }
+
+  .OtherFlex .ProjectPictureHolder {
+    display: none;
+  }
+
+  .OtherText, .OtherText a, .ContactLink {
+    font-size: 16px;
+  }
+
+  .FlexChildOther, .FlexChild {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+  }
+
+  .FlexChild {
+    min-height: 100vh;
+  }
+
+  .FlexChild h1 {
+    text-align: center;
+  }
+
+  .ProjectsFlex {
+    flex-direction: column;
+    margin-top: 60px !important;
+    height: 100vh !important;
+  }
+
+  .ProjectsFlex .ProjectPictureHolder {
+    width: 100%;
+    height: 50vh !important;
+    margin-left: 0%;
+    margin-top: 300px !important;
+  }
+
+  .ProjectText {
+    font-size: 16px;
+  }
+
+  .Modal {
+    width: 100vw;
+    margin: 0;
+    border: 0;
+    overflow: scroll;
+  }
+
+  .ModalFlexChild {
+    width: 100%;
+    margin: -60px 20px 0 0;
+  }
+
+  .ModalFlexChild h2 {
+    padding: 0 10px;
+    font-size: 28px;
+  }
+
+  .Close {
+    margin-top: 35px;
+    margin-right: 40px;
+    margin-bottom: 5px;
+  }
+
+  .ProjectModalContent {
+    height: 100%;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    border: 0;
+    padding-bottom: 50px;
+  }
+
+  .ModalLongText {
+    overflow: scroll;
+    font-size: 16px;
+  }
+
+  .ProjectImage {
+    height: 80%;
+    width: 100%;
+    object-fit: contain !important;
+    border: 0;
+  }
+
+  .PictureFlex {
+    margin-left: -5%;
+    width: 100%;
+  }
+
+  .Slick {
+    width: 100%;
+    border: 0;
+  }
+
+  .SlickButtonLeft {
+    left: -25px;
+  }
+
+  .SlickButtonRight {
+    right: -15px;
+  }
+
+  .Video {
+    width: 95%;
+    padding: 0;
+    border: 0;
+    margin: -100% 0 0 -5%;
+    height: auto;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+}
+
+/* Really small portrait phones */
+@media screen and (max-width: 350px) {
+  .FlexChild h1 {
+    padding: 0;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .ProjectText {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .ProjectButton {
+    font-size: 12px;
+  }
 }
